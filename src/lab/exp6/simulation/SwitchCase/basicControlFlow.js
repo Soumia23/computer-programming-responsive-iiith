@@ -221,9 +221,9 @@ window.view = {
 			this.codeExecutionWithColour();
 	 	if (this.currentSiblingElement.className === 'break redClass')
 			this.codeExecutionWithColourAndId('closeBrc1Id');
-		if (1 <= model.inputNumber && model.inputNumber <= 6) {
+		if (1 <= model.inputNumber && model.inputNumber <= 5) {
 	 		if (this.nextSiblingElement.id === 'holidayId')
-				this.codeExecutionWithColourAndId('elseIfId');
+				this.codeExecutionWithColourAsndId('elseIfId');
 	 		else if (this.nextSiblingElement.id === 'workingdayId') {
 	 			this.codeExecutionWithColour();
 				this.changeOpacity('workingdayImage');
@@ -240,7 +240,7 @@ window.view = {
 				this.setInnerHtml('outputDayId', 'INVALID INPUT');
 	 		}
 	 	}
-	 	if (model.inputNumber === 7) {
+	 	if (model.inputNumber === 7||model.inputNumber===6) {
 	 		if (this.nextSiblingElement.id === 'holidayId') {
 				this.codeExecutionWithColour();
 				this.changeOpacity('holidayImage');
@@ -249,7 +249,7 @@ window.view = {
 	 	}
 		if (this.nextSiblingElement.id === 'ifId')
 			this.codeExecutionWithColour();
-		if (this.nextSiblingElement.id === 'closeBrc2Id' || this.nextSiblingElement.id === 'elseId' || this.nextSiblingElement.id === 'elseIfId') {
+                                      if (this.nextSiblingElement.id === 'closeBrc2Id' || this.nextSiblingElement.id === 'elseId' || this.nextSiblingElement.id === 'elseIfId') {
 			this.codeExecutionWithColourAndId('closeBrc2Id');
 	 	}
 	},
