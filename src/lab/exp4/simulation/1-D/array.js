@@ -50,8 +50,16 @@ window.view = {
 	activateEvents: function() {
 		this.addClickEvent('btnOk', function() { view.proceedToStartButton() })
 		this.addClickEvent('btnStart', function() { view.displayElements() })
-		this.addClickEvent('btnNext', function() { view.sortArray() })
+	                   this.addClickEvent('btnNext', function() { view.sortArray() })
+                                      this.addClickEvent('btnRandom', function() { view.disableTextarea() })
+                                      this.addClickEvent('btnManual', function() { view.enableTextarea() })
 	},
+                   disableTextarea: function() {
+  document.getElementById("userInput").disabled = true;
+},
+                   enableTextarea: function(){
+  document.getElementById("userInput").disabled = false;
+  },
 	proceedToStartButton: function() {
 		var userInput = this.getArraySize()
 		if( isNaN( userInput ) === false ) {
