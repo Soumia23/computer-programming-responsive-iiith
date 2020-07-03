@@ -215,12 +215,12 @@ window.view = {
 				d = options4[i].value
 			options4[i].checked = false
 		}
-		if ( a !== '1')
-			alert('Incorrect value of input variables(arguments). Calculating the area of an equilateral triangle only requires the length of one of the sides of the triangle. Try again.')
+		if ( a !== '2')
+			alert('Incorrect value of input variables(arguments). Calculating the area of an right-angled triangle  requires the height and base of the triangle. Try again.')
 		else if ( b !== 'float' )
-			alert('Incorrect datatype of input variables(arguments). The value of the side of an equilateral triangle need not be an integer. Try again.')
+			alert('Incorrect datatype of input variables(arguments). The value of the height and base of an right-angled triangle need not be an integer. Try again.')
 		else if ( c !== 'float' )
-			alert('Incorrect datatype for return type. The value of the area of an equilateral triangle need not be an integer. Try again.')
+			alert('Incorrect datatype for return type. The value of the area of an right-angled triangle need not be an integer. Try again.')
 		else if ( d !== 'correct' )
 			alert('Incorrect formula for calculating the area of an equilateral triangle. Try again.')
 		else
@@ -271,7 +271,7 @@ window.view = {
 		document.getElementById('functionRectangle').innerHTML += 'float area_rect (float a,float b)<br>{<br> &emsp; float area = a*b;<br> &emsp; return area;<br>}'
 	},
 	displayFunctionForTriangle: function() {
-		document.getElementById('functionTriangle').innerHTML += 'float area_triangle (float a)<br>{<br>&emsp;float area = (sqrt(3)/4.0)*a*a;<br>&emsp;return area;<br>}'
+		document.getElementById('functionTriangle').innerHTML += 'float area_triangle (float a)<br>{<br>&emsp;float area = (1/2)*b*h;<br>&emsp;return area;<br>}'
 	},
 	displayFunctionForCircle: function() {
 		document.getElementById('functionCircle').innerHTML += 'float area_circle (float a)<br>{<br>&emsp;float area = 3.14*a*a;<br>&emsp;return area;<br>}'
@@ -307,7 +307,7 @@ window.view = {
 		this.correctInputs ++
 	},
 	area_triangle: function( param, functionCall ) {
-		this.area = Math.sqrt(3)/4 * param * param
+		this.area = (1/2) * param[0] * param[1]
 		this.totalArea += this.area
 		alert( 'area from function call ' + String( i + 1 ) + ' ) : ' + functionCall + ' is ' + this.area )
 		this.correctInputs ++
