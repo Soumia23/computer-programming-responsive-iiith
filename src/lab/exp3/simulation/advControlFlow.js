@@ -167,17 +167,20 @@ window.view = {
     	this.clearDivs()
     	var selected_loop = this.getSelectedLoop()
 		var inputValue = document.getElementById('simpleLoopInput').value
-		if (selected_loop === 'for' && inputValue !== '' && !isNaN(model.inp) )
+		if (selected_loop === 'for' && inputValue!=='' && !isNaN(model.inp) )
 		{
+			if (inputValue < -1 || inputValue >21){ alert("Invalid input" );  return false;}
 			this.displayLoop('forLoopContent', 'codeContentFor1')
 		}
-		if (selected_loop === 'while' && inputValue !== '' && !isNaN(model.inp))
+		if (selected_loop === 'while' && inputValue!=='' && !isNaN(model.inp))
 		{
+			if (inputValue < -1 || inputValue > 21){ alert("Invalid input" ); return false;}
 			this.displayLoop('whileLoopContent', 'codeContentWhile1')
 		}
-		if (selected_loop === 'do-while' && inputValue !== '' && !isNaN(model.inp))
+		if (selected_loop === 'do-while' && inputValue!=='' && !isNaN(model.inp))
 		{
-		 	this.displayLoop('dowhileLoopContent', 'codeContentDoWhile1')
+		 	if (inputValue < -1 || inputValue > 21){ alert("Invalid input" );  return false;}
+			this.displayLoop('dowhileLoopContent', 'codeContentDoWhile1')
 		}
 		this.disableButton('btnStart')
 		this.changeClass( 'btnStart', 'buttonDisable startButton')
@@ -188,7 +191,7 @@ window.view = {
 		this.disableButton('simpleLoopInput')
 	},
 	updateModelAndShowResult: function() {
-		if( model.inp >= 1)
+		if( model.inp >= 0)
 		{	
 			this.disp = model.fact
 			model.computeNextFact()
